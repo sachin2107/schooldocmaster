@@ -17,7 +17,10 @@
  	<context:component-scan base-package="com.school.docmaster.*" />
    	<jpa:repositories base-package="com.school.docmaster.repositories"/>
    	<mvc:annotation-driven></mvc:annotation-driven>
-	<!-- <mvc:resources mapping="/resources/**" location="/resources/theme1/"></mvc:resources> -->
+   	<!-- if we use location="classpath:resources" then BootstrapLib folder should be under src/main/resouces
+   	if we use location="/resources/" then BootstrapLib folder should be under WEB-INF/resources folder -->
+	<!-- <mvc:resources mapping="/resources/**" location="classpath:resources"></mvc:resources> -->
+	<mvc:resources mapping="/resources/**" location="/resources/"></mvc:resources> 
 	<jee:jndi-lookup jndi-name="jdbc/test" id="dataSource"
 		expected-type="javax.sql.DataSource" lookup-on-startup="true"
 		resource-ref="true">
