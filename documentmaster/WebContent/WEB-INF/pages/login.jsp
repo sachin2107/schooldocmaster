@@ -14,8 +14,42 @@
 </head>
 <body>
 	<div class="jumbotron">
-		<div><h2><spring:message code="loginwelcome"/></h2></div>
-		<button class="btn btn-info btn-lg">Submit</button>
+		<div class="container">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h1 align="center"><spring:message code="loginwelcome"/></h1>
+				</div>
+				<div class="panel-body">
+					<form:form method="POST" action="/documentmaster/school/login" modelAttribute="command" class="form-horizontal">
+							<div>
+								${a}
+							</div>
+							<form:label path="email" class="control-label">email<span class="red">*</span></form:label>
+							<div class="form-group">
+								<div class="col-sm-7">
+									<form:input path="email" class="form-control" required="true" title="User id must contain 4 to 15 characters"/>
+									<br>
+								</div>
+								<br>
+							</div>
+							<form:label path="password" class="control-label">Password<span class="red">*</span></form:label>
+							<div class="form-group">
+								<div class="col-sm-7">
+									<form:input type="password" path="password" required="true" title="Password must contain 8 to 15 characters" class="form-control"/>
+									<br>
+								</div>
+								<br>
+							</div>
+							<br><br><br><br>
+							<div class="form-group">
+								<div class="col-sm-offset-4 col-sm-7">
+									<button type="submit" class="btn btn-primary" >Login</button>
+								</div>
+							</div>
+					</form:form>
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
