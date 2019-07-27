@@ -48,7 +48,7 @@
 								<div class="col-sm-7">
 									<form:select path="hint" class="form-control">
 									<form:option value="" label="--- Select ---"/>
-   									<form:options items="${refData}" />
+   									<form:options items="${refData['ip_cntry']}" />
 									</form:select>
 									<br>
 								</div>

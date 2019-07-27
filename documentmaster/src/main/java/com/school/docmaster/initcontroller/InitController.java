@@ -56,7 +56,7 @@ public class InitController extends ApplicationProcessor{
 		}*/
 		Result result = new Result();
 		User user = this.userRepository.getUsers();
-		List refData =  (List) this.context.getAttribute("refDataBean");
+		Map refData =  (Map) this.context.getAttribute("refDataBean");
 		result.setUser(user);
 		model.addAttribute("result",result);
 		model.addAttribute("refData",refData);

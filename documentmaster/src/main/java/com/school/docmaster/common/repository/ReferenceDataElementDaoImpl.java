@@ -25,8 +25,8 @@ public class ReferenceDataElementDaoImpl implements ReferenceDataElementDao{
 
 	public List<ReferenceDataElement> getRefDataElements()
 	{
-		String query = "SELECT r.elementCode, r.categoryCode FROM ReferenceDataElement r";
-		List al = (List) this.sessionFactory.getCurrentSession().createQuery(query).list();
+		String query = "FROM ReferenceDataElement r";
+		List<ReferenceDataElement> al = (List<ReferenceDataElement>) this.sessionFactory.getCurrentSession().createQuery(query).list();
 		return al; 
 	}
 	
