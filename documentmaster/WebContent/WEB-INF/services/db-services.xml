@@ -20,19 +20,42 @@
 		resource-ref="true">
 	</jee:jndi-lookup>
 
-		<bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+	<tx:annotation-driven transaction-manager="hibernateTransactionManager"/>
+    <mvc:annotation-driven/>
+    <context:property-placeholder location="classpath:database.properties" />
+    <context:component-scan base-package="com.school.docmaster.*" />
+	
+	<!-- <jpa:repositories base-package="com.school.docmaster"/> -->
+	<!-- <bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
         <property name="showSql" value="false"/>
         <property name="generateDdl" value="true"/>
         <property name="databasePlatform" value="org.hibernate.dialect.MySQL5Dialect"/>
-    </bean>    
+    </bean>   
 
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="jpaVendorAdapter" ref="jpaVendorAdapter"/>
         <property name="persistenceUnitName" value="JpaPersistenceUnit" />
-        <!-- spring based scanning for entity classes-->
+        spring based scanning for entity classes
         <property name="packagesToScan" value="com.school.docmaster"/>
-    </bean>
+    </bean>  -->
+    <!-- <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"/> -->
+	
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="packagesToScan" value="com.school.docmaster" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>				
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="hibernateTransactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
 </beans>
 
 

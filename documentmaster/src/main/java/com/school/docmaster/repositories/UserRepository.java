@@ -1,11 +1,12 @@
 package com.school.docmaster.repositories;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
-import com.school.docmaster.model.Student;
+import com.school.docmaster.model.User;
 
-@Repository
-public interface UserRepository extends JpaRepository<Student, Integer>{
+public interface UserRepository {
 
+	public User getUsers();
 }

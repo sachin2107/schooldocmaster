@@ -20,7 +20,11 @@
 					<h1 align="center"><spring:message code="loginwelcome"/></h1>
 				</div>
 				<div class="panel-body">
-					<form:form method="POST" action="/documentmaster/school/login" modelAttribute="command" class="form-horizontal">
+				<div class="row">
+					${result.user.email}
+					${refData}
+				</div>
+					<form:form method="POST" action="/documentmaster/school/creds/login" modelAttribute="command" class="form-horizontal">
 							<div>
 								${a}
 							</div>
@@ -36,6 +40,16 @@
 							<div class="form-group">
 								<div class="col-sm-7">
 									<form:input type="password" path="password" required="true" title="Password must contain 8 to 15 characters" class="form-control"/>
+									<br>
+								</div>
+								<br>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-7">
+									<form:select path="hint" class="form-control">
+									<form:option value="" label="--- Select ---"/>
+   									<form:options items="${refData}" />
+									</form:select>
 									<br>
 								</div>
 								<br>

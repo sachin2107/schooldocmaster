@@ -1,9 +1,14 @@
 package com.school.docmaster.initcontroller;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,11 +17,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.school.docmaster.model.Result;
 import com.school.docmaster.model.User;
+import com.school.docmaster.repositories.UserRepository;
 
 @Controller
 @RequestMapping("/school")
-public class InitController {
+public class InitController extends ApplicationProcessor{
+	
+	@Autowired
+	private UserRepository userRepository;
+	
+	public void setUserRepository(UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
+
 	protected final String className = getClass().getName();
 	/*If you want to use log4j.properties file then use Logger.getLogger(InitController.class) this line*/
 	private final Logger logger = Logger.getLogger(InitController.class);
@@ -39,7 +54,13 @@ public class InitController {
 		{
 			debugLogger.debug("in hsbc logger...");
 		}*/
-		return new ModelAndView("login","command",new User());
+		Result result = new Result();
+		User user = this.userRepository.getUsers();
+		List refData =  (List) this.context.getAttribute("refDataBean");
+		result.setUser(user);
+		model.addAttribute("result",result);
+		model.addAttribute("refData",refData);
+		return new ModelAndView("login","command",user);
 	}
 	
 	@PostMapping(path="/login")
