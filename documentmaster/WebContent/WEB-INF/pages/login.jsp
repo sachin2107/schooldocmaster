@@ -9,8 +9,10 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="<c:url value="/pages/js/OnDropDownChange.js"/>"></script>
 	<meta charset="ISO-8859-1">
-	<title>Insert title here</title>
+	<title>Login</title>
 </head>
 <body>
 	<div class="jumbotron">
@@ -46,7 +48,7 @@
 							</div>
 							<div class="form-group">
 								<div class="col-sm-7">
-									<form:select path="hint" class="form-control">
+									<form:select path="hint" class="form-control" id="countryDrpDwn" onchange="javascript:hello()">
 									<form:option value="" label="--- Select ---"/>
    									<form:options items="${refData['ip_cntry']}" />
 									</form:select>

@@ -26,8 +26,8 @@
 	<!-- if we use location="classpath:resources" then BootstrapLib folder should be under src/main/resouces
    	if we use location="/resources/" then BootstrapLib folder should be under WEB-INF/resources folder -->
 	<!-- <mvc:resources mapping="/resources/**" location="classpath:resources"></mvc:resources> -->
-	<mvc:resources mapping="/resources/**" location="/resources/"></mvc:resources> 
-	
+	<!-- <mvc:resources mapping="/resources/js/**" location="/WEB-INF/resources/js/"></mvc:resources> -->
+	<mvc:resources mapping="/pages/**" location="/WEB-INF/pages/"></mvc:resources>
 </beans>
 
 
