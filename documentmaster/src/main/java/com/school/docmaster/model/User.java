@@ -3,6 +3,7 @@ package com.school.docmaster.model;
 import java.sql.Timestamp;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -12,12 +13,19 @@ import javax.persistence.Table;
 public class User {
 
 	@Id
+	@Column(name="EMAIL")
 	private String email;
+	@Column(name="USER_NAME_DESC")
 	private String userName;
+	@Column(name="PASSWORD")
 	private String password;
+	@Column(name="HINT")
 	private String hint;
+	@Column(name="HINT_ANSWER")
 	private String hintAnswer;
+	@Column(name="UPDATE_BY")
 	private String updateBy;
+	@Column(name="UPDATE_TIMESTAMP")
 	private Timestamp updateTimeStamp;
 	
 	public String getEmail() {
