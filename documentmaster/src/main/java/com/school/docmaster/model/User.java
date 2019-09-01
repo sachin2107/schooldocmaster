@@ -70,4 +70,5 @@ public class User {
 	public void setUpdateTimeStamp(Timestamp updateTimeStamp) {
 		this.updateTimeStamp = updateTimeStamp;
 	}
+	
 }

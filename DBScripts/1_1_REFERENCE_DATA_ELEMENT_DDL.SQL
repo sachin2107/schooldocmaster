@@ -35,3 +35,5 @@ CREATE UNIQUE INDEX REFERENCE_DATA_EL1 ON PROJ.REFERENCE_DATA_ELEMENT
     CHANNEL_ID,
     ELEMENT_CODE
 );
+
+--create table proj.reference_data_element (LOCALE varchar(30) not null, ELEMENT_CODE varchar(30) not null, CHANNEL_ID varchar(30) not null, CATEGORY_CODE varchar(30) not null, ACTIVE_FLAG char(1), ACTIVE_TIMESTAMP varchar(30), CREATED_TIMESTAMP datetime, CREATED_USER_ID varchar(30), ELEMENT_DESC varchar(30), ELEMENT_VALUE varchar(30), EXPIRY_TIMESTAMP varchar(30), ORDER_SEQ integer, UPDATE_USER_ID varchar(30), UPDATE_TIMESTAMP datetime, primary key (LOCALE, ELEMENT_CODE, CHANNEL_ID, CATEGORY_CODE));
