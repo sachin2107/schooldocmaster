@@ -14,6 +14,12 @@
 </head>
 <body>
 	<div class="jumbotron">
+		<%-- <form:form method="POST" action="/documentmaster/school/creds/login"
+						modelAttribute="command" class="form-horizontal">
+		<spring:hasBindErrors name="command">
+			<spring:message message="${errors.allErrors}"></spring:message>
+		</spring:hasBindErrors>
+		</form:form> --%>
 		<div><h2><spring:message code="clientId"/></h2></div>
 		<button class="btn btn-info btn-lg">Submit</button>
 	</div>

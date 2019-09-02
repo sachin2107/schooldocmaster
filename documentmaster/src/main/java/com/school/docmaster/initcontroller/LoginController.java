@@ -1,6 +1,5 @@
 package com.school.docmaster.initcontroller;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;

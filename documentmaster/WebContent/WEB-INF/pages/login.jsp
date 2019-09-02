@@ -16,6 +16,11 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="<c:url value="/pages/js/OnDropDownChange.js"/>"></script>
+<style type="text/css">
+.red-text {
+    color: red;
+  }
+</style>
 <meta charset="ISO-8859-1">
 <title>Login</title>
 </head>
@@ -27,13 +32,16 @@
 					<h1 align="center">
 						<spring:message code="loginwelcome" />
 					</h1>
+					${applicationScope['refDataBean']}
+					${applicationScope['firstName']}
+					<jsp:include page="common/tab_header.jsp"></jsp:include>
 				</div>
 				<div class="panel-body">
 					<div class="row">${result.user.email} ${refData}</div>
 					<c:if test="${not empty message}">
 						<div class="row">
 							<div class="col-xs-12 col-md-offset-2 col-md-8">
-								<div class="alert alert-info fade in">${message}</div>
+								<div class="alert alert-danger">${message}</div>
 							</div>
 						</div>
 					</c:if>
@@ -65,12 +73,11 @@
 						</div>
 						<div class="form-group">
 							<div class="col-sm-7">
-								<form:select path="hint" class="form-control" id="countryDrpDwn"
-									onchange="javascript:hello()">
+								<form:select path="hint" class="form-control" id="countryDrpDwn" onchange="javascript:hello()">
 									<form:option value="" label="--- Select ---" />
 									<form:options items="${refData['ip_cntry']}" />
 								</form:select>
-								<form:errors path="hint" />
+								<form:errors path="hint" cssClass="red-text" element="countryDrpDwn" />
 								<br>
 							</div>
 							<br>
