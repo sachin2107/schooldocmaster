@@ -1,20 +1,22 @@
 package com.school.docmaster.commonexception;
 
+import java.util.Map;
+
 import org.springframework.validation.Errors;
-import org.springframework.validation.Validator;
 
 import com.school.docmaster.model.User;
 
-public class UserValidator implements Validator {
+public class UserValidator extends AbstractValidator{
+
 
 	@Override
-	public boolean supports(Class<?> clazz) {
-		return User.class.equals(clazz);
+	protected Class<?> getValidatorSuportClass() {
+		return User.class;
 	}
 
 	@Override
-	public void validate(Object target, Errors errors) {
-		User user = (User) target;
+	protected void validateRequiredFields(Object obj, Map<?,?> map, Errors errors) {
+		User user = (User) obj;
 		if (user.getEmail() == null || user.getEmail().equals("2107sachin@gmail.com")) {
 			errors.rejectValue("hint", "hint.required", "Please select a file to upload!");
 			return;

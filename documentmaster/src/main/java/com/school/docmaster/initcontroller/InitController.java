@@ -1,7 +1,9 @@
 package com.school.docmaster.initcontroller;
 
+import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -68,7 +70,7 @@ public class InitController extends ApplicationProcessor {
 	public ModelAndView credentialLogin(@Valid @ModelAttribute("command") User userLogin, BindingResult results,
 			ModelMap model) {
 		if(userLogin.getHint().equals("firstname")) {
-			new UserValidator().validate(userLogin, results);
+			new UserValidator().validate(userLogin,new HashMap<>(), results);
 		}
 		if(results.hasErrors()) {
 			model.addAttribute("message", "Validation fails for adding the product!");
@@ -78,4 +80,5 @@ public class InitController extends ApplicationProcessor {
 		model.addAttribute("a", "abcd");
 		return new ModelAndView("login");
 	}
+
 }
