@@ -15,7 +15,9 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="<c:url value="/pages/js/OnDropDownChange.js"/>"></script>
+<%-- <script src="<c:url value="/pages/js/OnDropDownChange.js"/>"></script> --%>
+<script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.2.0/prototype.js"></script>
+<script src="<%=request.getContextPath()%>/pages/js/OnDropDownChange.js"></script>
 <style type="text/css">
 .red-text {
     color: red;
@@ -73,7 +75,7 @@
 						</div>
 						<div class="form-group">
 							<div class="col-sm-7">
-								<form:select path="hint" class="form-control" id="countryDrpDwn" onchange="javascript:hello()">
+								<form:select path="hint" class="form-control" id="countryDrpDwn" onchange="commonAlert.hello()">
 									<form:option value="" label="--- Select ---" />
 									<form:options items="${refData['ip_cntry']}" />
 								</form:select>

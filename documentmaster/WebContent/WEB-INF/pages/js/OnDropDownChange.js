@@ -1,3 +1,10 @@
-function hello(){
-	alert('hello...');
-}
+var CommonAlert = Class.create(
+{
+	initialize:function(){},
+	
+	hello:function(){
+		alert('hello...');
+	}
+
+});
+var commonAlert = new CommonAlert();
