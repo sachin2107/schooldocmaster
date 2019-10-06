@@ -1,6 +1,8 @@
 package com.school.docmaster.initcontroller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.school.docmaster.commonexception.UserValidator;
+import com.school.docmaster.model.Student;
 import com.school.docmaster.model.User;
 
 @Controller
@@ -38,4 +41,5 @@ public class LoginController extends ApplicationProcessor{
 		model.addAttribute("a", "abcd");
 		return new ModelAndView("login");
 	}
+	
 }

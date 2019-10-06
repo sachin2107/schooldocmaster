@@ -1,6 +1,8 @@
 package com.school.docmaster.initcontroller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
@@ -21,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.school.docmaster.commonexception.UserValidator;
 import com.school.docmaster.model.Result;
+import com.school.docmaster.model.Student;
 import com.school.docmaster.model.User;
 import com.school.docmaster.repositories.UserRepository;
 
@@ -61,6 +64,7 @@ public class InitController extends ApplicationProcessor {
 		User user = this.userRepository.getUsers();
 		Map refData = (Map) this.context.getAttribute("refDataBean");
 		result.setUser(user);
+		result.setStudents(getStudents());
 		model.addAttribute("result", result);
 		model.addAttribute("refData", refData);
 		return new ModelAndView("login", "command", user);
@@ -79,6 +83,14 @@ public class InitController extends ApplicationProcessor {
 		}
 		model.addAttribute("a", "abcd");
 		return new ModelAndView("login");
+	}
+	
+	public List<Student> getStudents(){
+		List<Student> students = new ArrayList<>();
+		students.add(new Student(1, "sachin", "khachane"));
+		students.add(new Student(2, "Akash", "Gandhamal"));
+		students.add(new Student(3, "Nachi", "Gondhalekar"));
+		return students;
 	}
 
 }

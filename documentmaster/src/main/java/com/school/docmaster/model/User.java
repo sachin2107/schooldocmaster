@@ -70,5 +70,14 @@ public class User {
 	public void setUpdateTimeStamp(Timestamp updateTimeStamp) {
 		this.updateTimeStamp = updateTimeStamp;
 	}
+
+	private int selectedIndex;
+
+	public int getSelectedIndex() {
+		return selectedIndex;
+	}
+	public void setSelectedIndex(int selectedIndex) {
+		this.selectedIndex = selectedIndex;
+	}
 	
 }
